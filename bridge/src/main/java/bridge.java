@@ -88,7 +88,6 @@ class BridgeDemo
 //    circle.resize(2);
 //    circle.draw();
 
-        // todo: Google Guice
         Injector injector = Guice.createInjector(new ShapeModule());
         Circle instance = injector.getInstance(Circle.class);
         instance.radius = 3;
