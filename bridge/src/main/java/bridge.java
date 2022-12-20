@@ -1,98 +1,102 @@
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
+//abstract class Shape
+//{
+//  public abstract String getName();
+//}
+//
+//class Triangle extends Shape
+//{
+//  @Override
+//  public String getName()
+//  {
+//    return "Triangle";
+//  }
+//}
+//
+//class Square extends Shape
+//{
+//  @Override
+//  public String getName()
+//  {
+//    return "Square";
+//  }
+//}
+//
+//class VectorSquare extends Square
+//{
+//  @Override
+//  public String toString()
+//  {
+//    return String.format("Drawing %s as lines", getName());
+//  }
+//}
+//
+//class RasterSquare extends Square
+//{
+//  @Override
+//  public String toString()
+//  {
+//    return String.format("Drawing %s as pixels", getName());
+//  }
+//}
+
+// imagine VectorTriangle and RasterTriangle are here too
 
 interface Renderer
 {
-    void renderCircle(float radius);
-}
-
-class VectorRenderer implements Renderer
-{
-    @Override
-    public void renderCircle(float radius)
-    {
-        System.out.println("Drawing a circle of radius " + radius);
-    }
-}
-
-class RasterRenderer implements Renderer
-{
-    @Override
-    public void renderCircle(float radius)
-    {
-        System.out.println("Drawing pixels for a circle of radius " + radius);
-    }
+    public String whatToRenderAs();
 }
 
 abstract class Shape
 {
-    protected Renderer renderer;
+    private Renderer renderer;
+    public String name;
 
     public Shape(Renderer renderer)
     {
         this.renderer = renderer;
     }
 
-    public abstract void draw();
-    public abstract void resize(float factor);
+    @Override
+    public String toString()
+    {
+        return String.format("Drawing %s as %s",
+                name, renderer.whatToRenderAs());
+    }
 }
 
-class Circle extends Shape
+class Triangle extends Shape
 {
-    public float radius;
-
-    @Inject
-    public Circle(Renderer renderer)
+    public Triangle(Renderer renderer)
     {
         super(renderer);
+        name = "Triangle";
     }
+}
 
-    public Circle(Renderer renderer, float radius)
+class Square extends Shape
+{
+    public Square(Renderer renderer)
     {
         super(renderer);
-        this.radius = radius;
-    }
-
-    @Override
-    public void draw()
-    {
-        renderer.renderCircle(radius);
-    }
-
-    @Override
-    public void resize(float factor)
-    {
-        radius *= factor;
+        name = "Square";
     }
 }
 
-class ShapeModule extends AbstractModule
+class RasterRenderer implements Renderer
 {
+
     @Override
-    protected void configure()
+    public String whatToRenderAs()
     {
-        bind(Renderer.class).to(VectorRenderer.class);
+        return "pixels";
     }
 }
 
-class BridgeDemo
+class VectorRenderer implements Renderer
 {
-    public static void main(String[] args)
+    @Override
+    public String whatToRenderAs()
     {
-//    RasterRenderer rasterRenderer = new RasterRenderer();
-//    VectorRenderer vectorRenderer = new VectorRenderer();
-//    Circle circle = new Circle(vectorRenderer, 5);
-//    circle.draw();
-//    circle.resize(2);
-//    circle.draw();
-
-        Injector injector = Guice.createInjector(new ShapeModule());
-        Circle instance = injector.getInstance(Circle.class);
-        instance.radius = 3;
-        instance.draw();
-        instance.resize(2);
-        instance.draw();
+        return "lines";
     }
 }

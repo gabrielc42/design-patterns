@@ -1,0 +1,30 @@
+design patterns:
+
+builder: collects many constructors into one tight constructor
+
+factory: class that gathers classes of similar extension/implementations
+
+prototype: copy original object to a new object, then modify it accordingly
+
+singleton: one object instantiation to a class
+
+adapter: 
+
+bridge
+composite
+decorator
+facade
+flyweight
+proxy
+chain of responsibility
+command
+interpreter
+iterator
+mediator
+memento
+null object
+observer
+state
+strategy
+template
+visitor
