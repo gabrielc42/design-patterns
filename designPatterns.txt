@@ -10,8 +10,10 @@ singleton: one object instantiation to a class
 
 adapter: 
 
-bridge
-composite
+bridge:
+
+composite:
+
 decorator
 facade
 flyweight
