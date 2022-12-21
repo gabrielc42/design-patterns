@@ -39,8 +39,11 @@ to represent it locally
 chain of responsibility: processing objects responsible for a command,
 forwards command to next processor, etc.
 
-command
-interpreter
+command: encapsulates what method to call, the method's arguments, 
+and the object to which the method belongs for performing a given action
+
+interpreter:
+
 iterator
 mediator
 memento
