@@ -12,7 +12,12 @@ adapter: constructor's instance of a different abstract/interface type, translat
 paramerters to appropriate format and directly calls one or several methods of
 the wrapped object
 
-bridge:
+bridge: 
+separate out responsibilities into different abstract classes
+- when parent abstract class defines basic rules, then concrete classes add
+rules
+- abstract class that references objects, abstract methods that will be defined
+in each of the concrete classes
 
 composite:
 
