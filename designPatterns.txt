@@ -45,11 +45,15 @@ and the object to which the method belongs for performing a given action
 interpreter: defines the grammar of a particular language in an 
 object-oriented way which can be evaluated by the interpreter itself
 
-iterator: 
+iterator: iterates through objects
 
-mediator
-memento
-null object
+mediator: object that takes care of interaction between dependent objects
+
+memento: implement undoable actions, saves state of object at instance and restoring
+if actions performed need to be undone
+
+null object:
+
 observer
 state
 strategy
