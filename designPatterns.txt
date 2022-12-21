@@ -21,8 +21,9 @@ in each of the concrete classes
 
 composite: treating individual objects and compositions of objects in the same way
 
+decorator: additional things added to an object statically or dynamically, enhanced interface
+to original object
 
-decorator
 facade
 flyweight
 proxy
