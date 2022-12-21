@@ -26,6 +26,7 @@ to original object
 
 *facade: encapsulates complex subsystem behind a simple interface
 - can makes changes to existing subsystem and not affect client
+- think complexity of car starting -> startEngine() and stopEngine()
 
 flyweight: share parts of object state between multiple objects
 
