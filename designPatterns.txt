@@ -8,7 +8,9 @@ prototype: copy original object to a new object, then modify it accordingly
 
 singleton: one object instantiation to a class
 
-adapter: 
+adapter: constructor's instance of a different abstract/interface type, translates
+paramerters to appropriate format and directly calls one or several methods of
+the wrapped object
 
 bridge:
 
