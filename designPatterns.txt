@@ -42,9 +42,11 @@ forwards command to next processor, etc.
 command: encapsulates what method to call, the method's arguments, 
 and the object to which the method belongs for performing a given action
 
-interpreter:
+interpreter: defines the grammar of a particular language in an 
+object-oriented way which can be evaluated by the interpreter itself
 
-iterator
+iterator: 
+
 mediator
 memento
 null object
