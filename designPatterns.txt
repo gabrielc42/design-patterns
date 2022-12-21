@@ -31,8 +31,14 @@ to original object
 flyweight: share parts of object state between multiple objects
 
 proxy: 
+- simplified version of complex or heavy object (skeleton object)
+- when original object is present in different address space, and we want
+to represent it locally
+- add a layer of security to underlying object
 
-chain of responsibility
+chain of responsibility: processing objects responsible for a command,
+forwards command to next processor, etc.
+
 command
 interpreter
 iterator
