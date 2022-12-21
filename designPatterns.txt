@@ -24,9 +24,13 @@ composite: treating individual objects and compositions of objects in the same w
 decorator: additional things added to an object statically or dynamically, enhanced interface
 to original object
 
-facade
-flyweight
-proxy
+*facade: encapsulates complex subsystem behind a simple interface
+- can makes changes to existing subsystem and not affect client
+
+flyweight: share parts of object state between multiple objects
+
+proxy: 
+
 chain of responsibility
 command
 interpreter
