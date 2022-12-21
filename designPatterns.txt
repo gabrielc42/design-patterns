@@ -19,7 +19,8 @@ rules
 - abstract class that references objects, abstract methods that will be defined
 in each of the concrete classes
 
-composite:
+composite: treating individual objects and compositions of objects in the same way
+
 
 decorator
 facade
