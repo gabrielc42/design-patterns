@@ -52,10 +52,15 @@ mediator: object that takes care of interaction between dependent objects
 memento: implement undoable actions, saves state of object at instance and restoring
 if actions performed need to be undone
 
-null object:
+null object: instantiation of a 'do nothing' class to not deal w/ null references
 
-observer
-state
-strategy
-template
-visitor
+observer: allows objects to notify other objects about changes in their state
+
+state: object changing behavior when its internal state changes
+
+strategy: set of behaviors -> interchangeable objects inside original context object
+
+template: skeleton of algorithm in base class and subclasses override steps w/out
+changing algorithim's structure
+
+visitor: new operation w/out introducing modifications to existing object structure
