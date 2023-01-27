@@ -11,3 +11,6 @@ includes:
 
 ## java-design-patterns
 Java, from Dmitri Nesteruk's udemy course
+
+## rust-design-patterns
+[from Rust Docs](https://rust-unofficial.github.io/patterns/intro.html)
