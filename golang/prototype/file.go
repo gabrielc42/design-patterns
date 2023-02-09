@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type filt struct {
+type file struct {
 	name string
 }
 
