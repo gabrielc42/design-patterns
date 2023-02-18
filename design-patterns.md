@@ -1,74 +1,69 @@
-design patterns:
+# design patterns:
 
-builder: collects many constructors into one tight constructor
+**builder:** collects many constructors into one tight constructor
 
-factory: class that gathers classes of similar extension/implementations
+**factory:** class that gathers classes of similar extension/implementations
 
-prototype: copy original object to a new object, then modify it accordingly
+**prototype:** copy original object to a new object, then modify it accordingly
 
-singleton: one object instantiation to a class
+**singleton:** one object instantiation to a class
 
-adapter: constructor's instance of a different abstract/interface type, translates
-paramerters to appropriate format and directly calls one or several methods of
-the wrapped object
+**adapter:** constructor's instance of a different abstract/interface type, translates paramerters to appropriate format and directly calls one or several methods of the wrapped object
 
-bridge: 
-separate out responsibilities into different abstract classes
+**bridge:** separate out responsibilities into different abstract classes
 - when parent abstract class defines basic rules, then concrete classes add
 rules
 - abstract class that references objects, abstract methods that will be defined
 in each of the concrete classes
 
-composite: treating individual objects and compositions of objects in the same way
+**composite:** treating individual objects and compositions of objects in the same way
 
-decorator: additional things added to an object statically or dynamically, enhanced interface
-to original object
+**decorator:** additional things added to an object statically or dynamically, enhanced interface to original object
 
-*facade: encapsulates complex subsystem behind a simple interface
+**facade:** encapsulates complex subsystem behind a simple interface
 - can makes changes to existing subsystem and not affect client
 - think complexity of car starting -> startEngine() and stopEngine()
 
-flyweight: share parts of object state between multiple objects
+**flyweight:** share parts of object state between multiple objects
 
-proxy: 
+**proxy:** 
 - simplified version of complex or heavy object (skeleton object)
 - when original object is present in different address space, and we want
 to represent it locally
 - add a layer of security to underlying object
 
-chain of responsibility: processing objects responsible for a command,
+**chain of responsibility:** processing objects responsible for a command,
 forwards command to next processor, etc.
 
-command: encapsulates what method to call, the method's arguments, 
+**command:** encapsulates what method to call, the method's arguments, 
 and the object to which the method belongs for performing a given action
 
-interpreter: defines the grammar of a particular language in an 
+**interpreter:** defines the grammar of a particular language in an 
 object-oriented way which can be evaluated by the interpreter itself
 
-iterator: iterates through objects
+**iterator:** iterates through objects
 
-mediator: object that takes care of interaction between dependent objects
+**mediator:** object that takes care of interaction between dependent objects
 
-memento: implement undoable actions, saves state of object at instance and restoring
-if actions performed need to be undone
+**memento:** implement undoable actions, saves state of object at instance and restoring if actions performed need to be undone
 
-null object: instantiation of a 'do nothing' class to not deal w/ null references
+**null object:** instantiation of a 'do nothing' class to not deal w/ null references
 
-observer: allows objects to notify other objects about changes in their state
+**observer:** allows objects to notify other objects about changes in their state
 
-state: object changing behavior when its internal state changes
+**state:** object changing behavior when its internal state changes
 
-strategy: set of behaviors -> interchangeable objects inside original context object
+**strategy:** set of behaviors -> interchangeable objects inside original context object
 
-template: skeleton of algorithm in base class and subclasses override steps w/out
-changing algorithim's structure
+**template:** skeleton of algorithm in base class and subclasses override steps w/out changing algorithim's structure
 
-visitor: new operation w/out introducing modifications to existing object structure
+**visitor:** new operation w/out introducing modifications to existing object structure
 
-object pool: pool of objects initialized and kept for retrieval and return
-when cost to create object of the class is high
+**object pool:** pool of objects initialized and kept for retrieval and return
+- when cost to create object of the class is high
 and number of such objects that will be needed at a particular time is not much
-when pool object is immutable
+- when pool object is immutable
 
-RAII:
+**RAII:** *todo
 
+**newtype:** *todo
