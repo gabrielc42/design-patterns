@@ -64,3 +64,11 @@ template: skeleton of algorithm in base class and subclasses override steps w/ou
 changing algorithim's structure
 
 visitor: new operation w/out introducing modifications to existing object structure
+
+object pool: pool of objects initialized and kept for retrieval and return
+when cost to create object of the class is high
+and number of such objects that will be needed at a particular time is not much
+when pool object is immutable
+
+RAII:
+
