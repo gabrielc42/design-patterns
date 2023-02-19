@@ -64,6 +64,10 @@ object-oriented way which can be evaluated by the interpreter itself
 and number of such objects that will be needed at a particular time is not much
 - when pool object is immutable
 
-**RAII:** *todo
+**RAII:** *Rust 
 
-**newtype:** *todo
+**newtype:** *Rust  
+
+**compose structs:** *Rust
+
+**prefer small crates:** *rust
