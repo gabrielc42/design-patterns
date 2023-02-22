@@ -19,7 +19,7 @@ to represent it locally
 **decorator:** additional things added to an object statically or dynamically, enhanced interface to original object
 
 **facade:** encapsulates complex subsystem behind a simple interface
-- can makes changes to existing subsystem and not affect client
+- can make changes to existing subsystem and not affect client
 - think complexity of car starting -> startEngine() and stopEngine()
 
 **flyweight:** share parts of object state between multiple objects
