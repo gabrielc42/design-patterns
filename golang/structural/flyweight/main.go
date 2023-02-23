@@ -4,5 +4,6 @@
 package main
 
 func main() {
-	//...
+	game := newDictionary()
+	game.add
 }
