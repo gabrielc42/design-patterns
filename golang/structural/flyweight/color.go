@@ -1,5 +1,5 @@
 package main
 
-type word interface {
+type color interface {
 	getColor() string
 }
