@@ -4,6 +4,18 @@
 
 package main
 
+import "fmt"
+
 func main() {
-	// ...
+	veggiePizza := &veggie{}
+
+	veggiePizzaExtraCheese := &cheeseTopping{
+		pizza: veggiePizza,
+	}
+
+	veggiePizzaExtraCheeseExtraKale := &kaleTopping{
+		pizza: veggiePizzaExtraCheese,
+	}
+
+	fmt.Printf("Price of veggie pizza with extra cheese, extra kale: %d \n", veggiePizzaExtraCheeseExtraKale.getPrice())
 }
