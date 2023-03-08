@@ -16,4 +16,8 @@ fn main() {
     *y += 1;
 
     // cargo clippy detects some cases in which .clone() is not necessary
+
+    // ![deny(warnings)]
+    // opts out of warnings
+    // RUSTFLAGS="-D warnings" cargo build
 }
