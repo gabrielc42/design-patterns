@@ -36,6 +36,25 @@ fn main() {
     // hyper HTTP client library
     // type state pattern
 
+    // Lenses and Prisms
+    // lens allows accessing parts of a data type in an abstract, unified way
+    // similar to how Rust traits work with type erasure, but a bit more power and flexibility
+
+    //  Lenses example:
+
+    // two types have a customer ID number which corresponds to a person
+    // a struct could represent each of these types, and a trait would have a get_customer_id function implemented
+
+    // lenses however allow code supporting customer ID to be moved from the type to the accessor function
+    // thanks to lens-rs crate
+
+    // in the example at the end of this file, a simple function like unique_ids_lens operates on a single lens
+    // a prism is a function that operates on a family of lenses
+
+    // Prisms
+    // same way traits allow "lens-like" design with static polymorphism and dynamic dispatch,
+    // prims split problems into multiple associated types to be composed
+    // Serde crate: Deserializer trait example in design book
 }
 
 // generics as type classes
@@ -152,4 +171,89 @@ impl FileDownloadRequest<Nfs> {
     fn mount_point(&self) -> &Path {
         self.protocol.mount_point()
     }
+}
+
+// Lenses example
+use std::collections::HashSet;
+
+pub struct Account {
+    account_id: u32,
+    account_type: String,
+    // other fields omitted
+}
+
+pub trait CustomerId {
+    fn get_customer_id(&self) -> u64;
+}
+
+pub struct CreditRecord {
+    customer_id: u64,
+    name: String,
+    dob: String,
+    // other fields omitted
+}
+
+impl CustomerId for CreditRecord {
+    fn get_customer_id(&self) -> u64 {
+        self.customer_id
+    }
+}
+
+pub struct AccountRecord {
+    customer_id: u64,
+    accounts: Vec<Account>,
+}
+
+impl CustomerId for AccountRecord {
+    fn get_customer_id(&self) -> u64 {
+        self.customer_id
+    }
+}
+
+// static polymorphism: only one type, but each function call can choose it
+fn unique_ids_set<R: CustomerId>(records: &[R]) -> HashSet<u64> {
+    records.iter().map(|r| r.get_customer_id()).collect()
+}
+
+// dynamic dispatch: iterates over any type with a customer ID, collecting all
+// values together
+fn unique_ids_iter<I>(iterator: I) -> HashSet<u64>
+    where I: Iterator<Item=Box<dyn CustomerId>>
+{
+    iterator.map(|r| r.as_ref().get_customer_id()).collect()
+}
+
+// lens-rs crate
+use std::collections::HashSet;
+
+use lens_rs::{optics, Lens, LensRef, Optics};
+
+#[derive(Clone, Debug, Lens /* derive to allow lenses to work */)]
+pub struct CreditRecord {
+    #[optic(ref)] // macro attribute to allow viewing this field
+    customer_id: u64,
+    name: String,
+    dob: String,
+    // other fields omitted
+}
+
+#[derive(Clone, Debug)]
+pub struct Account {
+    account_id: u32,
+    account_type: String,
+    // other fields omitted
+}
+
+#[derive(Clone, Debug, Lens)]
+pub struct AccountRecord {
+    #[optic(ref)]
+    customer_id: u64,
+    accounts: Vec<Account>,
+}
+
+fn unique_ids_lens<T>(iter: impl Iterator<Item = T>) -> HashSet<u64>
+where
+    T: LensRef<Optics![customer_id], u64>, // any type with this field
+{
+    iter.map(|r| *r.view_ref(optics!(customer_id))).collect()
 }
