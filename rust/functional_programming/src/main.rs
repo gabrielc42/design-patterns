@@ -55,6 +55,8 @@ fn main() {
     // same way traits allow "lens-like" design with static polymorphism and dynamic dispatch,
     // prims split problems into multiple associated types to be composed
     // Serde crate: Deserializer trait example in design book
+    // this example explains in depth 
+    // a deserializing method, pattern to do so, and solution to the above problem
 }
 
 // generics as type classes
@@ -257,3 +259,25 @@ where
 {
     iter.map(|r| *r.view_ref(optics!(customer_id))).collect()
 }
+
+// Prisms
+// deserialize Serde macro
+
+use serde::Deserialize;
+
+#[derive(Deserialize)]
+struct IdRecord {
+    name: String,
+    customer_id: String,
+}
+
+// defined as
+pub trait Deserialize<'de>: Sized {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>;
+}
+
+// the only reason this model works on any format and any type is 
+// because the deserializer trait's output type is specified by the implementor of Visitor it is passed,
+// rather than being tied to one specific type, which wasn't true in the account example
