@@ -19,12 +19,16 @@ Java, from Dmitri Nesteruk's udemy course
 # design-principles
 **S**ingle Responsibility Principle (SRP)
 - classes should have only one particular responsibility
+
 **O**pen/Closed Principle (OCP)
 - "software entities should be open for extension, but closed for modification"
+
 **L**iskov Substitution Principle
 - "objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program"
+
 **I**nterface Segregation Principle
 - "many client-specific interfaces are better than one general-purpose interface"
+
 **D**ependency Inversion Principle
 - One should "depend upon abstractions, [not] concretions"
 
