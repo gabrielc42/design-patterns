@@ -14,3 +14,22 @@ Java, from Dmitri Nesteruk's udemy course
 
 ## rust-design-patterns
 [from Rust Docs](https://rust-unofficial.github.io/patterns/intro.html)
+
+
+# design-principles
+**S**ingle Responsibility Principle
+- classes should have only one particular responsibility
+**O**
+- 
+**L**
+- 
+**I**
+- 
+**D**
+- 
+
+### Four Pillars of OOP
+**Encapsulation**
+**Abstraction**
+**Inheritance**
+**Polymorphism**
